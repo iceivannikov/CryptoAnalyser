@@ -18,19 +18,17 @@ public class Methods {
         return sb.toString();
     }
 
-    public static String encrypted2(StringBuilder sb, int keyEncrypt, List<String> strings, String s) {
+    public static String encrypted2(StringBuilder sb, int keyEncrypt, List<String> strings) {
         for (String string : strings) {
             char[] chars = string.toLowerCase().toCharArray();
             for (char aChar : chars) {
                 if (ALPHABET.indexOf(aChar) != -1) {
                     char c = ALPHABET.charAt((ALPHABET.indexOf(aChar) + keyEncrypt) % ALPHABET.length());
-                    StringBuilder builder = new StringBuilder(s);
-                    if (sb.toString().equals(builder.toString())) {
-                        sb.append(c);
-                    }
+                    sb.append(c);
                 }
             }
         }
         return sb.toString();
     }
+
 }
